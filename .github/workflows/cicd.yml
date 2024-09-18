@@ -19,7 +19,9 @@ jobs:
         steps:
         - name: Checkout - Récuparation du projet
           uses: actions/checkout@v4
-        - name: Installation de npm
+          with:
+            node-version: '20.x'
+        - name: Installation des dépendances
           run: npm install
         - name: Liste des fichiers et répertoires du dossier courant
           run: ls
