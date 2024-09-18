@@ -19,10 +19,10 @@ jobs:
         steps:
         - name: Checkout - Récuparation du projet
           uses: actions/checkout@v4
-        - name: Changement du dossier
-          run: cd source
           with:
             node-version: '20.x'
+        - name: Changement du dossier
+          run: cd source
         - name: Installation des dépendances
           run: npm install
         - name: Liste des fichiers et répertoires du dossier courant
