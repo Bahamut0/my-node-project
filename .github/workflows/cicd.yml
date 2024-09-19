@@ -21,7 +21,7 @@ jobs:
         
         steps:
         - name: Checkout - Récuparation du projet
-        - uses: actions/checkout@v4
+          uses: actions/checkout@v4
         - name: Liste des fichiers et répertoires du dossier courant
           run: ls
 
@@ -35,13 +35,13 @@ jobs:
 
 
         - name: Couverture de code
-        - uses: codecov/codecov-action@v4
-            with:
-              token: ${{ secrets.CODECOV_TOKEN }} # required
-            # fail_ci_if_error: true # optional (default = false)
-            # files: ./coverage1.xml,./coverage2.xml # optional
-            # flags: unittests # optional
-            # name: codecov-umbrella # optional
+          uses: codecov/codecov-action@v4
+          with:
+            fail_ci_if_error: true # optional (default = false)
+            files: ./coverage1.xml,./coverage2.xml # optional
+            flags: unittests # optional
+            name: codecov-umbrella # optional
+            token: ${{ secrets.CODECOV_TOKEN }} # required
             # verbose: true # optional (default = false)
 
 
