@@ -52,15 +52,18 @@ jobs:
         - name: Couverture de code avec Coveralls
           uses: coverallsapp/github-action@v2
           with:
-            token: ${{ secrets.CODECOV_TOKEN }} 
+            token: ${{ secrets.CODECOV_TOKEN }}
+
+        - name: Répertoire courant 
+          run : ls
 
         - name: Run linters
           uses: wearerequired/lint-action@v2
           with:
             eslint: true
-            eslint_dir: ../src/node_modules/.bin/
+            # eslint_dir: ../src/node_modules/.bin/
             prettier: true
-            prettier_dir: ../src/node_modules/.bin/
+            # prettier_dir: ../src/node_modules/.bin/
 
         # - name: Couverture de code avec Codecov
         #   uses: codecov/codecov-action@v4
