@@ -9,7 +9,7 @@ on:
 #   MY_VARIABLE: 'This is a variable'
 
 jobs:
-    build:
+    unit_test_jest:
         runs-on: ubuntu-latest
         defaults:
           run:
@@ -28,9 +28,15 @@ jobs:
           run: npm install
         - name: Liste des dépendances installées
           run: npm list
-        # - name: Ajout de Jest dans les variables d'environnement
-        #   run: export PATH="./node_modules/.bin:$PATH"
         - name: Test avec Jest
           run: ./node_modules/.bin/jest test/sum.test.js
 
-        
+
+    check_success:
+      runs-on: ubuntu-latest
+      if: ${{ always() && contains(join(needs.*.result, ','), 'exit 1') }}
+      needs: [unit_test_jest]
+      steps:
+      - name: Annonce que le job est en cours           
+        run: |
+          echo "Second Job Running"
