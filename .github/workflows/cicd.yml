@@ -14,14 +14,16 @@ jobs:
 
         strategy:
             matrix:
-                node-version: [20.x, 22.x]
+                node-version: [20.x]
         
         steps:
         - name: Checkout - Récuparation du projet
           uses: actions/checkout@v4
           with:
             node-version: '20.x'
-            # path: source
+            sparse-checkout: |
+              source
+            # path: source/
         - name: Liste des fichiers et répertoires du dossier courant
           run: ls
         - name: Changement du dossier
