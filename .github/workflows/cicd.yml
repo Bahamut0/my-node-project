@@ -21,7 +21,7 @@ jobs:
         
         steps:
         - name: Checkout - Récuparation du projet
-        - uses: actions/checkout@v4
+          uses: actions/checkout@v4
         - name: Liste des fichiers et répertoires du dossier courant
           run: ls
         - name: Installation des dépendances
@@ -30,7 +30,7 @@ jobs:
           run: npm list
         - name: Test avec Jest
           run: ./node_modules/.bin/jest test/sum.test.js
-        - uses: codecov/codecov-action@v4
+          uses: codecov/codecov-action@v4
           with:
             fail_ci_if_error: true # optional (default = false)
             files: ./coverage1.xml,./coverage2.xml # optional
