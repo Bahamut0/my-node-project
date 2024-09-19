@@ -14,15 +14,18 @@ jobs:
 
         strategy:
             matrix:
-                node-version: [18.x, 20.x, 22.x]
+                node-version: [20.x, 22.x]
         
         steps:
         - name: Checkout - Récuparation du projet
           uses: actions/checkout@v4
           with:
             node-version: '20.x'
-        - name: Changement du dossier
-          run: cd source
+            path: source
+        - name: Liste des fichiers et répertoires du dossier courant
+          run: ls
+        # - name: Changement du dossier
+        #   run: cd source
         - name: Installation des dépendances
           run: npm install
         - name: Liste des fichiers et répertoires du dossier courant
