@@ -1,10 +1,21 @@
-const sum = require("../sum");
-// require("../sum")
+const { multiply, divide, sum, sub } = require("../sum");
+
+// const sum = require("../sum");
+require("../sum")
 
 test("adds 1 + 2 to equal 3", () => {
 	expect(sum(1, 2)).toBe(3);
 });
 
-test("adds 5 + 7 to equal 12", () => {
-	expect(sum(5, 7)).toBe(12);
+
+test("2 - 1 to equal 1", () => {
+	expect(sub(2, 1)).toBe(1);
 });
+
+test("5 * 2 to equal 10", () => {
+	expect(multiply(5, 2)).toBe(10);
+});
+
+// test("10 / 2 to equal 5", () => {
+// 	expect(divide(10, 2)).toBe(5);
+// });
