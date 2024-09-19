@@ -19,9 +19,8 @@ jobs:
         steps:
         - name: Checkout - Récuparation du projet
           uses: actions/checkout@v4
-          with:
         - name: Setup Node
-            working-directory: ./src
+          working-directory: ./src
         - name: Liste des fichiers et répertoires du dossier courant
           run: ls
         # - name: Changement du dossier & Liste des fichiers et répertoires du dossier courant
