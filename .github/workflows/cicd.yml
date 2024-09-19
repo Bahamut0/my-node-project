@@ -26,7 +26,7 @@ jobs:
           run: ls
         - name: Installation des dépendances
           run: npm install
-          
-        # - name: Liste des fichiers et répertoires du dossier courant
-        #   run: ls
+        - name: Test avec Jest
+          run: jest test/sum.test.js
+
         
