@@ -32,19 +32,17 @@ jobs:
 
         - name: Test avec Jest
           run: ./node_modules/.bin/jest --coverage test/sum.test.js
-        # - name: Test du secret
-        #   run: echo ${{ secrets.CODECOV_TOKEN }}
 
 
-        # - name: Couverture de code avec Codecov
-        #   uses: codecov/codecov-action@v4
-        #   with:
-        #     token: ${{ secrets.CODECOV_TOKEN }} 
-
-        - name: Couverture de code avec Coveralls
-          uses: coverallsapp/github-action@v2
+        - name: Couverture de code avec Codecov
+          uses: codecov/codecov-action@v4
           with:
             token: ${{ secrets.CODECOV_TOKEN }} 
+
+        # - name: Couverture de code avec Coveralls
+        #   uses: coverallsapp/github-action@v2
+        #   with:
+        #     token: ${{ secrets.CODECOV_TOKEN }} 
 
 
     check_success:
