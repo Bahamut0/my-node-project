@@ -20,7 +20,7 @@ jobs:
         - name: Checkout - Récuparation du projet
           uses: actions/checkout@v4
           with:
-          - name: Setup Node
+        - name: Setup Node
             working-directory: ./src
         - name: Liste des fichiers et répertoires du dossier courant
           run: ls
