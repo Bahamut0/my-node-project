@@ -32,7 +32,7 @@ jobs:
 
         strategy:
             matrix:
-                node-version: [20.x]
+                node-version: [22.x]
         
         steps:
         - name: Checkout - Récuparation du projet
@@ -58,7 +58,9 @@ jobs:
           uses: wearerequired/lint-action@v2
           with:
             eslint: true
+            eslint_dir: ./node_modules/.bin/
             prettier: true
+            prettier_dir: ./node_modules/.bin/
 
         # - name: Couverture de code avec Codecov
         #   uses: codecov/codecov-action@v4
@@ -68,7 +70,7 @@ jobs:
 
     check_success:
       runs-on: ubuntu-latest
-      if: always() && (needs.unit_test_jest.result == 'success')
+      # if: always() && (needs.unit_test_jest.result == 'success')
       needs: [unit_test_jest]
       steps:
       - name: Annonce que le job est en cours           
