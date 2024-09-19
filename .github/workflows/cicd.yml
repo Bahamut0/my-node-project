@@ -32,19 +32,19 @@ jobs:
 
         - name: Test avec Jest
           run: ./node_modules/.bin/jest test/sum.test.js
-        - name: Test du secret
-          run: echo ${{ secrets.CODECOV_TOKEN }}
+        # - name: Test du secret
+        #   run: echo ${{ secrets.CODECOV_TOKEN }}
 
 
-        - name: Couverture de code
+        # - name: Couverture de code avec Codecov
+        #   uses: codecov/codecov-action@v4
+        #   with:
+        #     token: ${{ secrets.CODECOV_TOKEN }} 
+
+        - name: Couverture de code avec Coveralls
           uses: codecov/codecov-action@v4
           with:
-            fail_ci_if_error: true # optional (default = false)
-            files: ./coverage1.xml,./coverage2.xml # optional
-            flags: unittests # optional
-            name: codecov-umbrella # optional
-            token: ${{ secrets.CODECOV_TOKEN }} # required
-            # verbose: true # optional (default = false)
+            token: ${{ secrets.CODECOV_TOKEN }} 
 
 
     check_success:
