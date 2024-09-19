@@ -34,7 +34,7 @@ jobs:
 
     check_success:
       runs-on: ubuntu-latest
-      if: ${{ always() && contains(join(needs.*.result, ','), 'exit 1') }}
+      if: ${{ always() && contains(join(needs.*.result, ','), 'exit code 1') }}
       needs: [unit_test_jest]
       steps:
       - name: Annonce que le job est en cours           
