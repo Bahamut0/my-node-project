@@ -54,11 +54,11 @@ jobs:
           with:
             token: ${{ secrets.CODECOV_TOKEN }} 
 
-        
-        # - name: Upload artifact
-        #   uses: actions/upload-pages-artifact@v3
-        #   with:
-        #     path: ./public
+        - name: Run linters
+          uses: wearerequired/lint-action@v2
+          with:
+            eslint: true
+            prettier: true
 
         # - name: Couverture de code avec Codecov
         #   uses: codecov/codecov-action@v4
@@ -95,18 +95,3 @@ jobs:
         - name: Deploy to GitHub Pages
           id: deployment
           uses: actions/deploy-pages@v4
-      
-    run-linters:
-      name: Run linters
-      runs-on: ubuntu-latest
-
-      steps:
-        - name: Check out Git repository
-          uses: actions/checkout@v4
-
-        # Install your linters here
-
-        - name: Run linters
-          uses: wearerequired/lint-action@v2
-          with:
-            # Enable your linters here

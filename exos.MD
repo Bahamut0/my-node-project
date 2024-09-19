@@ -23,4 +23,12 @@ sudo npm install -g jest
 - lancer les tests en manuel pour vérifier que cela fonctionne
 jest test/sum.test.js
 
+- installer eslint
+
+npm i eslint
+
+- installer prettier
+
+npm i prettier
+
 
