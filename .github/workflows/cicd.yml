@@ -42,7 +42,7 @@ jobs:
         #     token: ${{ secrets.CODECOV_TOKEN }} 
 
         - name: Couverture de code avec Coveralls
-          uses: codecov/codecov-action@v4
+          uses: coverallsapp/github-action@v2
           with:
             token: ${{ secrets.CODECOV_TOKEN }} 
 
