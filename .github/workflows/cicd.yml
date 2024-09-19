@@ -39,6 +39,12 @@ jobs:
           with:
             token: ${{ secrets.CODECOV_TOKEN }} 
 
+        
+        - name: Upload artifact
+          uses: actions/upload-pages-artifact@v3
+          with:
+            path: ./public
+
         # - name: Couverture de code avec Codecov
         #   uses: codecov/codecov-action@v4
         #   with:
@@ -54,24 +60,12 @@ jobs:
         run: |
           echo "Second Job Running"
 
-
-    front:
-      runs-on: ubuntu-latest
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./public
-
-      
-
     deploy:
       environment:
         name: github-pages
         url: ${{ steps.deployment.outputs.page_url }}
       runs-on: ubuntu-latest
-      needs: build
+      needs: unit_test_jest
       steps:
         - name: Deploiement sur GitHub Pages
           id: deployment
