@@ -24,10 +24,9 @@ jobs:
           uses: actions/checkout@v4
         - name: Liste des fichiers et répertoires du dossier courant
           run: ls
-        # - name: Changement du dossier & Liste des fichiers et répertoires du dossier courant
-        #   run: cd source & ls
-        # - name: Installation des dépendances
-        #   run: npm install
+        - name: Installation des dépendances
+          run: npm install
+          
         # - name: Liste des fichiers et répertoires du dossier courant
         #   run: ls
         
