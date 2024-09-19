@@ -28,6 +28,8 @@ jobs:
           run: npm install
         - name: Liste des dépendances installées
           run: npm list
+        - name: Ajout de Jest dans les variables d'environnement
+          run: export PATH="./node_modules/.bin:$PATH"
         - name: Test avec Jest
           run: jest test/sum.test.js
 
