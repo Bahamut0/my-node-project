@@ -23,12 +23,12 @@ jobs:
             node-version: '20.x'
             # sparse-checkout: |
             #   source
-            repository: source
+            repository: Bahamut0/my-node-project
             path: source
         - name: Liste des fichiers et répertoires du dossier courant
           run: ls
-        # - name: Changement du dossier & Liste des fichiers et répertoires du dossier courant
-        #   run: cd source & ls
+        - name: Changement du dossier & Liste des fichiers et répertoires du dossier courant
+          run: cd source & ls
         # - name: Installation des dépendances
         #   run: npm install
         # - name: Liste des fichiers et répertoires du dossier courant
