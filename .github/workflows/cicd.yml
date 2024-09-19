@@ -31,7 +31,7 @@ jobs:
           run: npm list
 
         - name: Test avec Jest
-          run: ./node_modules/.bin/jest test/sum.test.js
+          run: ./node_modules/.bin/jest --coverage test/sum.test.js
         # - name: Test du secret
         #   run: echo ${{ secrets.CODECOV_TOKEN }}
 
