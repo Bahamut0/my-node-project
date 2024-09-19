@@ -57,12 +57,23 @@ jobs:
         - name: Répertoire courant 
           run : ls
 
-        - name: Run linters
-          uses: wearerequired/lint-action@v2
-          with:
-            eslint: true
+      ################################
+      # Run Linter against code base #
+      ################################
+        - name: Lint Code Base
+          uses: github/super-linter@v4
+          env:
+            VALIDATE_ALL_CODEBASE: false
+            DEFAULT_BRANCH: main
+            GITHUB_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+        # - name: Run linters
+        #   uses: wearerequired/lint-action@v2
+        #   with:
+        #     eslint: true
+            #   Error: Directory /home/runner/work/my-node-project/src/node_modules/.bin/ for ESLint doesn't exist
             # eslint_dir: ../src/node_modules/.bin/
-            prettier: true
+            # prettier: true
             # prettier_dir: ../src/node_modules/.bin/
 
         # - name: Couverture de code avec Codecov
